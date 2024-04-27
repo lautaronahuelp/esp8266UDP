@@ -25,10 +25,10 @@ char * genDC09String(int type, int *evento, int sequence, char * account){
 }
 
 bool checkDC09CRC(char * message) {
-  char entrada[21], token[9];
-
-  strcpy(entrada, strtok(&message[8], "\r"));
-  strcpy(token, strtok(message, "\""));
+  char entrada[21], salida[50], token[9];
+  strcpy(salida, message);
+  strcpy(entrada, strtok(&salida[8], "\r"));
+  strcpy(token, strtok(salida, "\""));
 
   if (strcmp(token, genCRCStamp(entrada)) == 0) {
     return true;
