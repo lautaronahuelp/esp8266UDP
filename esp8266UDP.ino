@@ -13,6 +13,9 @@ WiFiUDP UDP;
 int eventoTest[16] = { 1, 2, 3, 4, 1, 8, 1, 6, 0, 2, 0, 0, 0, 0, 0, 2 };
 char account[5] = "1234";
 int sequence = 77;
+
+bool ack = false;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -41,5 +44,5 @@ void loop() {
     lastSendTime = millis();
     sendMessage();
   }
-  receiveACK();
+  receiveACK(&ack);
 }

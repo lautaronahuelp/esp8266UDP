@@ -8,7 +8,7 @@ int portLocal = 54000;
 char replyPacket[] = "Mensaje de prueba :-)";
 char incomingPacket[255];
 
-bool ack = false;
+//bool ack = false;
 
 void startUDP()
 {
@@ -40,7 +40,7 @@ void sendMessage()
   
 }
 
-void receiveACK()
+void receiveACK(bool * ack)
 {
   int packetSize = UDP.parsePacket();
   if (packetSize)
@@ -53,7 +53,7 @@ void receiveACK()
       incomingPacket[len] = 0;
     }
     //if(strcmp(incomingPacket, "ACK") == 0) ack = true;
-    if(checkDC09CRC(&incomingPacket[1])) ack = true;
+    if(checkDC09CRC(&incomingPacket[1])) *ack = true;
     Serial.printf("UDP packet contents: %s\n", incomingPacket);
   }
 }
