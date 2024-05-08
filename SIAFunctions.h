@@ -1,5 +1,5 @@
-#ifndef SIA_FUCNTIONS_H
-#define SIA_FUCNTIONS_H
+#ifndef SIA_FUNCTIONS_H
+#define SIA_FUNCTIONS_H
 
 char * genDC09String(int type, int *evento, int * sequence);// // GENERATE DC09 STRING
 
